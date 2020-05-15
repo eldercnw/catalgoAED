@@ -19,6 +19,7 @@ namespace Catalogo
                 Console.WriteLine($"Que operação deseja executar?\n" +
                     $"1. Para inserir novo cliente\n" +
                     $"2. Para listar todos os clientes\n");
+                    //teste
 
                 switch (opcao)
                 {
