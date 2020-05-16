@@ -20,7 +20,7 @@ namespace Catalogo.controllers
 
         public static void ListarEncanadores()
         {
-            foreach (var item in Encanador.listaEncanadores)
+            foreach (var item in Encanador.listaEncanador)
             {
                 Console.WriteLine(item.ToString());
             }

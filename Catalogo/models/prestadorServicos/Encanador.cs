@@ -9,11 +9,11 @@ namespace Catalogo.models.prestadorServicos
     class Encanador : PrestadorDeServicos
     {
 
-        public static List<Encanador> listaEncanadores = new List<Encanador>();
+        public static List<Encanador> listaEncanador = new List<Encanador>();
 
         public override string ToString()
         {
-            return $"Categoria: {Cliente.GetTipo(this)}\nNome: {this.nome}\n CPF: {this.cpf}\n\n";
+            return $"Categoria: {Cliente.GetTipo(this)}\nNome: {this.nome}\nCPF: {this.cpf}\n\n";
         }
 
     }

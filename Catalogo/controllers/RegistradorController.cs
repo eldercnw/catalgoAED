@@ -50,7 +50,7 @@ namespace Catalogo.controllers
                 {
                     foreach (string line in lines)
                     {
-                        ++Cliente.quantidadeCliente;
+                      
                         JsonTextReader jsonreader = new JsonTextReader(new StringReader(line));
                         switch (tipo)
                         {
@@ -58,14 +58,22 @@ namespace Catalogo.controllers
                                 Confeiteiro confeiteiro = new Confeiteiro();
                                 JsonSerializer jsonConfeiteiro = new JsonSerializer();
                                 confeiteiro = jsonConfeiteiro.Deserialize<Confeiteiro>(jsonreader);
-                                if(!Confeiteiro.listaConfeiteiros.Exists(c => c.cpf == confeiteiro.cpf)) Confeiteiro.listaConfeiteiros.Add(confeiteiro);
+                                if (!Confeiteiro.listaConfeiteiros.Exists(c => c.cpf == confeiteiro.cpf)) 
+                                {
+                                    Confeiteiro.listaConfeiteiros.Add(confeiteiro);
+                                    ++Cliente.quantidadeCliente;
+                                }
                                 break;
 
                             case "encanador":
                                 Encanador encanador = new Encanador();
                                 JsonSerializer jsonEncanador = new JsonSerializer();
                                 encanador = jsonEncanador.Deserialize<Encanador>(jsonreader);
-                                if (!Encanador.listaEncanadores.Exists(c => c.cpf == encanador.cpf)) Encanador.listaEncanadores.Add(encanador);
+                                if (!Encanador.listaEncanador.Exists(c => c.cpf == encanador.cpf))
+                                {
+                                    Encanador.listaEncanador.Add(encanador);
+                                    ++Cliente.quantidadeCliente;
+                                }
                                 break;
                         }
                     }
@@ -118,6 +126,9 @@ namespace Catalogo.controllers
             {
                 case "confeiteiro":
                     existInList = Confeiteiro.listaConfeiteiros.Exists(c => c.cpf == cliente.cpf);
+                    break;
+                case "encanador":
+                    existInList = Encanador.listaEncanador.Exists(c => c.cpf == cliente.cpf);
                     break;
             }
             return existInList;
