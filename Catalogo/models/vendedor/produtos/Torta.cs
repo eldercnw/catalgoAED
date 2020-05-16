@@ -9,7 +9,7 @@ namespace Catalogo.models.vendedor.produtos
     class Torta : Produto
     {
         public double peso { get; set; }
-        public String tamanho { get; set; }
+        public string tamanho { get; set; }
         public int paes { get; set; }
 
     }

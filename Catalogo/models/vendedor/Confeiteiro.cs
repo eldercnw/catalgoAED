@@ -10,5 +10,10 @@ namespace Catalogo.models.vendedor
     class Confeiteiro : Vendedor
     {
         public static List<Confeiteiro> listaConfeiteiros = new List<Confeiteiro>();
+
+        public override string ToString()
+        {
+            return $"Categoria: {Cliente.GetTipo(this)}\nNome: {this.nome}\n CPF: {this.cpf}\n\n";
+        }
     }
 }

@@ -6,6 +6,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Pipes;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -15,13 +16,18 @@ namespace Catalogo.controllers
 {
     class RegistradorController
     {
-        public static void CarregarClientes()
-        {
-            List<string> clientes = new List<string> {
+        private static List<string> _clientes = new List<string> {
                 "vendedor.confeiteiro",
                 "prestadordeservicos.encanador",
             };
 
+        public static List<string> getClientes()
+        {
+            return _clientes;
+        }
+        public static void CarregarClientes()
+        {
+            List<string> clientes = getClientes();
             foreach (var cliente in clientes)
             {
                 string tipo = "";
@@ -44,6 +50,7 @@ namespace Catalogo.controllers
                 {
                     foreach (string line in lines)
                     {
+                        ++Cliente.quantidadeCliente;
                         JsonTextReader jsonreader = new JsonTextReader(new StringReader(line));
                         switch (tipo)
                         {
@@ -51,14 +58,14 @@ namespace Catalogo.controllers
                                 Confeiteiro confeiteiro = new Confeiteiro();
                                 JsonSerializer jsonConfeiteiro = new JsonSerializer();
                                 confeiteiro = jsonConfeiteiro.Deserialize<Confeiteiro>(jsonreader);
-                                Confeiteiro.listaConfeiteiros.Add(confeiteiro);
+                                if(!Confeiteiro.listaConfeiteiros.Exists(c => c.cpf == confeiteiro.cpf)) Confeiteiro.listaConfeiteiros.Add(confeiteiro);
                                 break;
 
                             case "encanador":
                                 Encanador encanador = new Encanador();
                                 JsonSerializer jsonEncanador = new JsonSerializer();
                                 encanador = jsonEncanador.Deserialize<Encanador>(jsonreader);
-                                Encanador.listaEncanadores.Add(encanador);
+                                if (!Encanador.listaEncanadores.Exists(c => c.cpf == encanador.cpf)) Encanador.listaEncanadores.Add(encanador);
                                 break;
                         }
                     }
@@ -85,24 +92,16 @@ namespace Catalogo.controllers
             }
 
 
-            bool existInList = false;
-            switch (tipo)
-            {
-                case "confeiteiro":
-                    existInList = Confeiteiro.listaConfeiteiros.Exists(c => c.cpf == cliente.cpf);
-                    break;
-            }
-
             try
             {
-                if (!existInList && !(cliente.cpf == ""))
-                {
-                    
+                if (!VerificarExistenciaCPF(tipo, cliente) && !(cliente.cpf == 0))
+                {                  
                     String path = $"..\\..\\arquivos\\{subTipo}\\{tipo}.txt";
                     string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(cliente);
                     List<String> linhas = new List<string>();
                     linhas.Add(jsonString);
                     System.IO.File.AppendAllLines($@"{path}", linhas);
+                    RegistradorController.CarregarClientes();
                 }
             }
             catch(Exception e)
@@ -111,5 +110,19 @@ namespace Catalogo.controllers
             }
 
         }
+
+        public static bool VerificarExistenciaCPF(string tipo, Cliente cliente)
+        {
+            bool existInList = false;
+            switch (tipo)
+            {
+                case "confeiteiro":
+                    existInList = Confeiteiro.listaConfeiteiros.Exists(c => c.cpf == cliente.cpf);
+                    break;
+            }
+            return existInList;
+        }
+
+
     }
 }

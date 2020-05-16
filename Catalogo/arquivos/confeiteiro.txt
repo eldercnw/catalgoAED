@@ -1,2 +1,0 @@
-{"produtos":null,"entrega":false,"email":null,"idade":0,"senha":null,"nome":null,"cpf":"122","telefone":null,"whatsapp":null,"endereco":null}
-{"produtos":null,"entrega":false,"email":null,"idade":0,"senha":null,"nome":null,"cpf":"152","telefone":null,"whatsapp":null,"endereco":null}

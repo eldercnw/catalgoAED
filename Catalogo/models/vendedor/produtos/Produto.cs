@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Catalogo.models.vendedor
 {
-    abstract class Produto
+    class Produto
     {
         public double preco { get; set; }
     }

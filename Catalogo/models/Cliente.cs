@@ -9,14 +9,27 @@ namespace Catalogo.models
 {
     abstract class Cliente
     {
-        public String email { get; set; }
+        public static int quantidadeCliente = 0;
+        public string email { get; set; }
         public int idade { get; set; }
-        public String senha { get; set; }
-        public String nome { get; set; }
-        public String cpf { get; set; }
-        public String telefone { get; set; }
-        public String whatsapp { get; set; }
-        public String endereco { get; set; }
+        public string nome { get; set; }
+        public int cpf { get; set; }
+        public string telefone { get; set; }
+        public string whatsapp { get; set; }
 
+       
+        public static string GetTipo(Cliente cliente)
+        {
+            string tipo = cliente.GetType().ToString().ToLower();
+            if (tipo.Contains("vendedor"))
+            {
+                tipo = tipo.Remove(0, 9).ToLower();
+            }
+            if (tipo.Contains("prestadorservicos"))
+            {
+                tipo = tipo.Remove(0, 34).ToLower();
+            }
+            return tipo;
+        }
     }
 }
