@@ -18,9 +18,5 @@ namespace Catalogo.models
         public String whatsapp { get; set; }
         public String endereco { get; set; }
 
-        //public static List<Cliente> ListarClientes()
-        //{
-            
-        //}
     }
 }

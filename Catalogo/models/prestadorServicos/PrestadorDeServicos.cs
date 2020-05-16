@@ -10,5 +10,6 @@ namespace Catalogo.models.prestadorServicos
     {
         public int experiencia { get; set; }
         public double precoDeServico { get; set; }
+
     }
 }
