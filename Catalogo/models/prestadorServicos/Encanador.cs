@@ -8,5 +8,6 @@ namespace Catalogo.models.prestadorServicos
 {
     class Encanador : PrestadorDeServicos
     {
+        public static List<Encanador> listaEncanadores = new List<Encanador>();
     }
 }

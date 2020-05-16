@@ -9,5 +9,6 @@ namespace Catalogo.models.vendedor
 {
     class Confeiteiro : Vendedor
     {
+        public static List<Confeiteiro> listaConfeiteiros = new List<Confeiteiro>();
     }
 }
