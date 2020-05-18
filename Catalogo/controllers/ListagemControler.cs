@@ -15,8 +15,6 @@ namespace Catalogo.controllers
         {
             ListagemControler.ListarEncanadores();
             ListagemControler.ListarConfeiteiros();
-            ListagemControler.ListarPipoqueiros();
-            ListagemControler.ListarEletricistas();
 
         }
 
@@ -33,22 +31,6 @@ namespace Catalogo.controllers
             {
                 Console.WriteLine(item.ToString());
             }
-        }
-        public static void ListarPipoqueiros()
-        {
-            foreach (var item in Pipoqueiro.listaPipoqueiro)
-            {
-                Console.WriteLine(item.ToString());
-            }
-
-        }
-        public static void ListarEletricistas()
-        {
-            foreach (var item in Eletricista.listaEletricista)
-            {
-                Console.WriteLine(item.ToString());
-            }
-
         }
     }
 }

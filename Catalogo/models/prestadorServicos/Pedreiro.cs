@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-class Pipoqueiro : Vendedor
+class Pedreiro : PrestadorDeServicos
 {
-   public static List<Pipoqueiro> listaPipoqueiros = new List<Pipoqueiro>();
+    public static List<Pedreiro> listaPedreiros = new List<Pedreiro>();
+
 }
