@@ -13,7 +13,7 @@ namespace Catalogo.models.vendedor
 
         public override string ToString()
         {
-            return $"Categoria: {Cliente.GetTipo(this)}\nNome: {this.nome}\n CPF: {this.cpf}\n\n";
+            return $"Categoria: Confeiteiro\nNome: {this.nome}\n CPF: {this.cpf}\n\n";
         }
     }
 }

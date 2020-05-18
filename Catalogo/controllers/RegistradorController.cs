@@ -19,6 +19,8 @@ namespace Catalogo.controllers
         private static List<string> _clientes = new List<string> {
                 "vendedor.confeiteiro",
                 "prestadordeservicos.encanador",
+                "vendedor.pipoqueiro",
+
             };
 
         public static List<string> getClientes()
@@ -67,6 +69,13 @@ namespace Catalogo.controllers
                                 encanador = jsonEncanador.Deserialize<Encanador>(jsonreader);
                                 if (!Encanador.listaEncanadores.Exists(c => c.cpf == encanador.cpf)) Encanador.listaEncanadores.Add(encanador);
                                 break;
+
+                            case "pipoqueiro":
+                                Pipoqueiro pipoqueiro = new Pipoqueiro();
+                                JsonSerializer jsonPipoqueiro = new JsonSerializer();
+                                pipoqueiro = jsonPipoqueiro.Deserialize<Pipoqueiro>(jsonreader);
+                                if (!Pipoqueiro.listaPipoqueiros.Exists(c => c.cpf == pipoqueiro.cpf)) Pipoqueiro.listaPipoqueiros.Add(pipoqueiro);
+                                break;
                         }
                     }
                 }
@@ -94,7 +103,7 @@ namespace Catalogo.controllers
 
             try
             {
-                if (!VerificarExistenciaCPF(tipo, cliente) && !(cliente.cpf == 0))
+                if (!VerificarExistenciaCPF(tipo, cliente) && !(cliente.cpf.Length==0))
                 {                  
                     String path = $"..\\..\\arquivos\\{subTipo}\\{tipo}.txt";
                     string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(cliente);

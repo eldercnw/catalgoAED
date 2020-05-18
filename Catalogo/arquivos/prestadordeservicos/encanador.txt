@@ -1,2 +1,3 @@
 {"experiencia":12,"precoDeServico":123.0,"email":"321@gm","idade":123,"nome":"Eler","cpf":1233,"telefone":"213","whatsapp":"123"}
 {"experiencia":133,"precoDeServico":123.0,"email":"1232","idade":231,"nome":"Esa","cpf":123,"telefone":"113","whatsapp":"23"}
+{"experiencia":10,"precoDeServico":80.0,"email":"ujiio,","idade":16,"nome":"123","cpf":123,"telefone":"999","whatsapp":"9999"}

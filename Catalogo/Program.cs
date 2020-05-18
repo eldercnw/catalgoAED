@@ -33,7 +33,8 @@ namespace Catalogo
                         Console.WriteLine("Qual a categoria do cliente:\n" +
                             "1. Para Confeiteiro\n" +
                             "2. Para Encanador\n" +
-                            "3. Para Listar por categoria\n");
+                            "3. Para Pipoqueiro\n" +
+                            "4. Para Listar por categoria\n");
                         string categoria = Console.ReadLine();
                         switch (categoria)
                         {
@@ -41,7 +42,7 @@ namespace Catalogo
                                 categoria = "confeiteiro";
                                 Confeiteiro confeiteiro = new Confeiteiro();
                                 Console.WriteLine("Qual o CPF do novo cliente? ");
-                                confeiteiro.cpf = Convert.ToInt32(Console.ReadLine());
+                                confeiteiro.cpf = (Console.ReadLine());
                                 if (RegistradorController.VerificarExistenciaCPF(categoria, confeiteiro)) 
                                 {
                                     Console.WriteLine("Cliente já registrado nessa categoria");
@@ -62,19 +63,29 @@ namespace Catalogo
                                 bool fazEntrega = entrega == "1" ? true : false;
                                 confeiteiro.entrega = fazEntrega;
                                 Console.WriteLine("Qual produto o cliente vende?\n" +
-                                    "1. Para Bolo");
+                                    "1. Para Bolo\n" + "2. Para torta\n");
                                 string produto = Console.ReadLine();
                                 switch (produto)
                                 {
                                     case "1":
                                         Bolo bolo = new Bolo();
-                                        Console.WriteLine("Qual o preço do bolo");
+                                        Console.WriteLine("Qual o preço do bolo?");
                                         bolo.preco = Convert.ToDouble(Console.ReadLine());
-                                        Console.WriteLine("Qual o tamanho do bolo");
+                                        Console.WriteLine("Qual o tamanho do bolo?");
                                         bolo.tamanho = Console.ReadLine();
-                                        Console.WriteLine("Qual o peso do bolo");
+                                        Console.WriteLine("Qual o peso do bolo?");
                                         bolo.peso = Convert.ToDouble(Console.ReadLine());
                                         confeiteiro.produtos.Add(bolo);
+                                        break;
+                                    case "2":
+                                        Torta torta = new Torta();
+                                        Console.WriteLine("Qual o preço da torta?");
+                                        torta.preco = Convert.ToDouble(Console.ReadLine());
+                                        Console.WriteLine("Qual o tamanho da torta?");
+                                        torta.tamanho = Console.ReadLine();
+                                        Console.WriteLine("Qual o peso da torta");
+                                        torta.peso = Convert.ToDouble(Console.ReadLine());
+                                        confeiteiro.produtos.Add(torta);
                                         break;
                                 }
                                 RegistradorController.RegistrarCliente(confeiteiro);
@@ -84,7 +95,7 @@ namespace Catalogo
                                 categoria = "encanador";
                                 Encanador encanador = new Encanador();
                                 Console.WriteLine("Qual o CPF do novo cliente? ");
-                                encanador.cpf = Convert.ToInt32(Console.ReadLine());
+                                encanador.cpf = (Console.ReadLine());
                                 if (RegistradorController.VerificarExistenciaCPF(categoria, encanador))
                                 {
                                     Console.WriteLine("Cliente já registrado nessa categoria");
@@ -106,6 +117,29 @@ namespace Catalogo
                                 encanador.precoDeServico = Convert.ToDouble(Console.ReadLine());
                                 RegistradorController.RegistrarCliente(encanador);
                                 break;
+                            case "3":
+                                categoria = "pipoqueiro";
+                                Pipoqueiro pipoqueiro = new Pipoqueiro();
+                                Console.WriteLine("Qual o CPF do novo cliente? ");
+                                pipoqueiro.cpf = (Console.ReadLine());
+                                if (RegistradorController.VerificarExistenciaCPF(categoria, pipoqueiro))
+                                {
+                                    Console.WriteLine("Cliente já registrado nessa categoria");
+                                    break;
+                                }
+                                Console.WriteLine("Digite o nome do cliente: ");
+                                pipoqueiro.nome = Console.ReadLine();
+                                Console.WriteLine("Digite a idade do cliente: ");
+                                pipoqueiro.idade = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine("Digite o whatsapp do cliente: ");
+                                pipoqueiro.whatsapp = Console.ReadLine();
+                                Console.WriteLine("Digite o telefone do cliente: ");
+                                pipoqueiro.telefone = Console.ReadLine();
+                                Console.WriteLine("Digite o email do cliente: ");
+                                pipoqueiro.email = Console.ReadLine();
+                                RegistradorController.RegistrarCliente(pipoqueiro);
+                                break;
+
                         }
                         break;
                     case 2:
@@ -116,7 +150,7 @@ namespace Catalogo
                     case 3:
                         Console.WriteLine("Qual categoria deseja listar:");
                         Console.WriteLine($"1. Para Confeiteiro\n" +
-                            $"2. Para Encanador\n");
+                            $"2. Para Encanador\n" + $"3. Para Pipoqueiro\n");
                         string listarCategoria = Console.ReadLine();
                         switch (listarCategoria)
                         {
@@ -125,6 +159,9 @@ namespace Catalogo
                                 break;
                             case "2":
                                 ListagemControler.ListarEncanadores();
+                                break;
+                            case "3":
+                                ListagemControler.ListarPipoqueiros();
                                 break;
                             default:
                                 Console.WriteLine("Comando invalido");

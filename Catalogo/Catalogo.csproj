@@ -52,6 +52,7 @@
     <Compile Include="models\prestadorServicos\Encanador.cs" />
     <Compile Include="models\prestadorServicos\PrestadorDeServicos.cs" />
     <Compile Include="models\vendedor\Confeiteiro.cs" />
+	<Compile Include="models\vendedor\Pipoqueiro.cs" />
     <Compile Include="models\vendedor\produtos\Bolo.cs" />
     <Compile Include="models\vendedor\produtos\Produto.cs" />
     <Compile Include="models\vendedor\produtos\Salgadinhos.cs" />

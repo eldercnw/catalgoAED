@@ -13,7 +13,7 @@ namespace Catalogo.models.prestadorServicos
 
         public override string ToString()
         {
-            return $"Categoria: {Cliente.GetTipo(this)}\nNome: {this.nome}\n CPF: {this.cpf}\n\n";
+            return $"Categoria: Encanador\nNome: {this.nome}\n CPF: {this.cpf}\n\n";
         }
 
     }

@@ -1,0 +1,2 @@
+{"produtos":[],"entrega":false,"email":"122","idade":122,"nome":"122","cpf":122,"telefone":"122","whatsapp":"122"}
+{"produtos":[],"entrega":false,"email":"thiagobrau1@ucl.br","idade":20,"nome":"Thiago","cpf":"18000806703","telefone":"997992458","whatsapp":"997"}

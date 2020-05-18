@@ -15,6 +15,7 @@ namespace Catalogo.controllers
         {
             ListagemControler.ListarEncanadores();
             ListagemControler.ListarConfeiteiros();
+            ListagemControler.ListarPipoqueiros();
 
         }
 
@@ -28,6 +29,13 @@ namespace Catalogo.controllers
         public static void ListarConfeiteiros()
         {
             foreach (var item in Confeiteiro.listaConfeiteiros)
+            {
+                Console.WriteLine(item.ToString());
+            }
+        }
+        public static void ListarPipoqueiros()
+        {
+            foreach (var item in Pipoqueiro.listaPipoqueiros)
             {
                 Console.WriteLine(item.ToString());
             }

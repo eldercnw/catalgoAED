@@ -13,7 +13,7 @@ namespace Catalogo.models
         public string email { get; set; }
         public int idade { get; set; }
         public string nome { get; set; }
-        public int cpf { get; set; }
+        public string cpf { get; set; }
         public string telefone { get; set; }
         public string whatsapp { get; set; }
 

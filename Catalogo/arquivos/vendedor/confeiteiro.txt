@@ -1,0 +1,4 @@
+{"produtos":[{"peso":3.0,"tamanho":"5","preco":20.0}],"entrega":true,"email":"69696","idade":36,"nome":"63","cpf":222,"telefone":"999","whatsapp":"999"}
+{"produtos":[{"peso":5.0,"tamanho":"5","preco":50.0}],"entrega":false,"email":"thiagobrau1@ucl.br","idade":20,"nome":"Thiago Cordeiro Pereira","cpf":"18000806703","telefone":"998514435","whatsapp":"997992458"}
+{"produtos":[],"entrega":true,"email":"lcordeiro@ucl.br","idade":23,"nome":"Lucas","cpf":"155600901740","telefone":"997992458","whatsapp":"997992458"}
+{"produtos":[{"peso":6.0,"tamanho":"5","paes":0,"preco":20.0}],"entrega":true,"email":"tiagobrau1@ucl.br","idade":20,"nome":"Thiago","cpf":"18000806704","telefone":"997992458","whatsapp":"997992458"}
