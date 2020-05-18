@@ -106,6 +106,59 @@ namespace Catalogo
                                 encanador.precoDeServico = Convert.ToDouble(Console.ReadLine());
                                 RegistradorController.RegistrarCliente(encanador);
                                 break;
+                            
+                            case "3":
+                                categoria = "pipoqueiro";
+                                Pipoqueiro pipoqueiro = new Pipoqueiro();
+                                Console.WriteLine("Qual o CPF do novo cliente? ");
+                                pipoqueiro.cpf = Convert.ToInt32(Console.ReadLine());
+                                if (RegistradorController.VerificarExistenciaCPF(categoria, pipoqueiro))
+                                {
+                                    Console.WriteLine("Cliente já registrado nessa categoria");
+                                    break;
+                                }
+                                Console.WriteLine("Digite o nome do cliente: ");
+                                pipoqueiro.nome = Console.ReadLine();
+                                Console.WriteLine("Digite a idade do cliente: ");
+                                pipoqueiro.idade = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine("Digite o whatsapp do cliente: ");
+                                pipoqueiro.whatsapp = Console.ReadLine();
+                                Console.WriteLine("Digite o telefone do cliente: ");
+                                pipoqueiro.telefone = Console.ReadLine();
+                                Console.WriteLine("Digite o email do cliente: ");
+                                pipoqueiro.email = Console.ReadLine();
+                                Console.WriteLine("Digite o tempo de experiência em meses do cliente: ");
+                                pipoqueiro.experiencia = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine("Digite o preço de serviço do cliente: ");
+                                pipoqueiro.precoDeServico = Convert.ToDouble(Console.ReadLine());
+                                RegistradorController.RegistrarCliente(pipoqueiro);
+                                break;
+                            case "4":
+                                categoria = "eletricista";
+                                Eletricista eletricista = new Eletricista();
+                                Console.WriteLine("Qual o CPF do novo cliente? ");
+                                eletricista.cpf = Convert.ToInt32(Console.ReadLine());
+                                if (RegistradorController.VerificarExistenciaCPF(categoria, eletricista))
+                                {
+                                    Console.WriteLine("Cliente já registrado nessa categoria");
+                                    break;
+                                }
+                                Console.WriteLine("Digite o nome do cliente: ");
+                                eletricista.nome = Console.ReadLine();
+                                Console.WriteLine("Digite a idade do cliente: ");
+                                eletricista.idade = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine("Digite o whatsapp do cliente: ");
+                                eletricista.whatsapp = Console.ReadLine();
+                                Console.WriteLine("Digite o telefone do cliente: ");
+                                eletricista.telefone = Console.ReadLine();
+                                Console.WriteLine("Digite o email do cliente: ");
+                                eletricista.email = Console.ReadLine();
+                                Console.WriteLine("Digite o tempo de experiência em meses do cliente: ");
+                                eletricista.experiencia = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine("Digite o preço de serviço do cliente: ");
+                                eletricista.precoDeServico = Convert.ToDouble(Console.ReadLine());
+                                RegistradorController.RegistrarCliente(eletricista);
+                                break;
                         }
                         break;
                     case 2:
@@ -116,7 +169,8 @@ namespace Catalogo
                     case 3:
                         Console.WriteLine("Qual categoria deseja listar:");
                         Console.WriteLine($"1. Para Confeiteiro\n" +
-                            $"2. Para Encanador\n");
+                            $"2. Para Encanador\n" + $"3. Para Pipoqueiro\n" + 
+                            $"4. Para Eletricista\n");
                         string listarCategoria = Console.ReadLine();
                         switch (listarCategoria)
                         {
@@ -125,6 +179,12 @@ namespace Catalogo
                                 break;
                             case "2":
                                 ListagemControler.ListarEncanadores();
+                                break;
+                            case "3":
+                                ListagemControler.ListarPipoqueiros();
+                                break;
+                            case "4":
+                                ListagemControler.ListarEletricistas();
                                 break;
                             default:
                                 Console.WriteLine("Comando invalido");

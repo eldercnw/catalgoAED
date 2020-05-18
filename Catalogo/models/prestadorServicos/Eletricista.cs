@@ -3,7 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-class Eletricista : PrestadorDeServicos
+
+namespace Catalogo.models.prestadorServicos
 {
-   public static List<Eletricista> listaEletricistas = new List<Eletricista>();
+    class Eletricista : PrestadorDeServicos
+    {
+
+        public static List<Eletricista> listaEletricista = new List<Eletricista>();
+
+        public override string ToString()
+        {
+            return $"Categoria: {Cliente.GetTipo(this)}\nNome: {this.nome}\nCPF: {this.cpf}\n\n";
+        }
+
+    }
 }

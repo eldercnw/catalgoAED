@@ -19,6 +19,8 @@ namespace Catalogo.controllers
         private static List<string> _clientes = new List<string> {
                 "vendedor.confeiteiro",
                 "prestadordeservicos.encanador",
+                "vendedor.pipoqueiro",
+                "prestadordeservicos.eletricista",
             };
 
         public static List<string> getClientes()
@@ -72,6 +74,26 @@ namespace Catalogo.controllers
                                 if (!Encanador.listaEncanador.Exists(c => c.cpf == encanador.cpf))
                                 {
                                     Encanador.listaEncanador.Add(encanador);
+                                    ++Cliente.quantidadeCliente;
+                                }
+                                break;
+                            case "pipoqueiro":
+                                Pipoqueiro pipoqueiro = new Pipoqueiro();
+                                JsonSerializer jsonPipoqueiro = new JsonSerializer();
+                                pipoqueiro = jsonPipoqueiro.Deserialize<Pipoqueiro>(jsonreader);
+                                if (!Pipoqueiro.listaPipoqueiro.Exists(c => c.cpf == pipoqueiro.cpf))
+                                {
+                                    Pipoqueiro.listaPipoqueiro.Add(pipoqueiro);
+                                    ++Cliente.quantidadeCliente;
+                                }
+                                break;
+                            case "eletricista":
+                                Eletricista eletricista = new Eletricista();
+                                JsonSerializer jsonEletricista = new JsonSerializer();
+                                eletricista = jsonEletricista.Deserialize<Eletricista>(jsonreader);
+                                if (!Eletricista.listaEletricista.Exists(c => c.cpf == eletricista.cpf))
+                                {
+                                    Eletricista.listaEletricista.Add(eletricista);
                                     ++Cliente.quantidadeCliente;
                                 }
                                 break;
@@ -129,6 +151,12 @@ namespace Catalogo.controllers
                     break;
                 case "encanador":
                     existInList = Encanador.listaEncanador.Exists(c => c.cpf == cliente.cpf);
+                    break;
+                case "pipoqueiro":
+                    existInList = Pipoqueiro.listaPipoqueiro.Exists(c => c.cpf == cliente.cpf);
+                    break;
+                case "eletricista":
+                    existInList = Eletricista.listaEletricista.Exists(c => c.cpf == cliente.cpf);
                     break;
             }
             return existInList;
