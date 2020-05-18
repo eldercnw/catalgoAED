@@ -24,8 +24,7 @@ namespace Catalogo
                     $"Atualmente o sistema tem {Cliente.quantidadeCliente} clientes");
                 Console.WriteLine($"Que operação deseja executar?\n" +
                     $"1. Para inserir novo cliente\n" +
-                    $"2. Para listar todos os clientes\n" +
-                    $"3. Para Listar por categoria\n");
+                    $"2. Para listar todos os clientes\n");
                 opcao = Convert.ToInt32(Console.ReadLine());
                 switch (opcao)
                 {
@@ -33,7 +32,8 @@ namespace Catalogo
                         Console.WriteLine($"Inserir novo cliente...");
                         Console.WriteLine("Qual a categoria do cliente:\n" +
                             "1. Para Confeiteiro\n" +
-                            "2. Para Encanador\n");
+                            "2. Para Encanador\n" +
+                            "3. Para Listar por categoria\n");
                         string categoria = Console.ReadLine();
                         switch (categoria)
                         {

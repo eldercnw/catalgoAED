@@ -1,4 +1,2 @@
 {"experiencia":12,"precoDeServico":123.0,"email":"321@gm","idade":123,"nome":"Eler","cpf":1233,"telefone":"213","whatsapp":"123"}
 {"experiencia":133,"precoDeServico":123.0,"email":"1232","idade":231,"nome":"Esa","cpf":123,"telefone":"113","whatsapp":"23"}
-{"experiencia":2313,"precoDeServico":12.0,"email":"123","idade":213,"nome":"sqd","cpf":12323,"telefone":"123","whatsapp":"123"}
-{"experiencia":123,"precoDeServico":13.0,"email":"213","idade":123,"nome":"321","cpf":1231,"telefone":"123","whatsapp":"23"}
